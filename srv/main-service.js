@@ -7,8 +7,8 @@ module.exports = async (srv) => {
         //TODO: get userId from req.user
         var oUser = await restAPI('GET',`/api/v1/scim/Users/${userId}`);
         //TODO: groups_to_be will be populated based on mainRole and subRole values
-        //"BnuUh0O7D8NyXSj4lEE000","p8IlIMwC9FbwYNBmSAU000"
-        var groups_to_be = ["p8IlIMwC9FbwYNBmSAU000"];
+        //test_group_1: p8IlIMwC9FbwYNBmSAU000 ;; test_group_2: BnuUh0O7D8NyXSj4lEE000
+        var groups_to_be = ["BnuUh0O7D8NyXSj4lEE000"];
         var groups_as_is = oUser["groups"].map(e => e["value"]);
         for(var group in groups_to_be){
             if(groups_as_is.includes(groups_to_be[group])){

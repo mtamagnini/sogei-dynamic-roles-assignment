@@ -1,0 +1,61 @@
+#!/usr/bin/bash
+
+ 
+
+# Local variables
+
+var=$(date +"%FORMAT_STRING")
+
+now=$(date +"%m_%d_%Y@%H:%M:%S")
+
+SECONDS=0
+
+ 
+
+# Clear debug logs
+
+parentDir=$(pwd)
+
+ 
+
+# Clear build & push logs
+
+rm *akefile*
+
+rm -R *mta-op*
+
+ 
+
+# Delete previously generated MTAR
+
+rm -R mta_archives
+
+rm -R _mta_archives
+
+ 
+
+# Perform MTAR build
+
+clear
+
+echo -e "\e[33m -- START MBT BUILD @ $now -- \e[39m"
+
+mbt build  --target ${parentDir}/_mta_archives/ --mtar deployableMtar
+
+duration=$SECONDS
+
+echo -e "\e[33m -- TOTAL DURATION: $(($duration / 60)) minutes and $(($duration % 60)) seconds elapsed. -- \e[39m"
+
+ 
+
+# Perform CF Deploy
+
+SECONDS=0
+
+echo -e "\e[34m -- START CF DEPLOY @ $now -- \e[39m"
+
+cf deploy ${parentDir}/_mta_archives/deployableMtar.mtar --abort-on-error --delete-services --version-rule ALL
+
+duration=$SECONDS
+
+echo -e "\e[32m -- TOTAL DURATION: $(($duration / 60)) minutes and $(($duration % 60)) seconds elapsed. --"

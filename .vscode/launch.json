@@ -12,7 +12,7 @@
         "--profile",
         "hybrid",
         "--port",
-        "4006"
+        "4007"
       ],
       "skipFiles": [
         "<node_internals>/**"
