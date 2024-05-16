@@ -2,15 +2,17 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "cds serve",
+      "name": "cds watch --profil hybrid",
       "request": "launch",
       "type": "node",
       "cwd": "${workspaceFolder}",
       "runtimeExecutable": "cds",
       "args": [
-        "serve",
-        "--with-mocks",
-        "--in-memory?"
+        "watch",
+        "--profile",
+        "hybrid",
+        "--port",
+        "4005"
       ],
       "skipFiles": [
         "<node_internals>/**"

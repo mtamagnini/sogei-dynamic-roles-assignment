@@ -6,7 +6,11 @@
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
+    "@sap-cloud-sdk/http-client": "^3.15.0",
+    "@sap-cloud-sdk/resilience": "^3.15.0",
     "@sap/cds": "^7",
+    "@sap/hana-client": "^2.20.22",
+    "@sap/xssec": "^3",
     "express": "^4"
   },
   "devDependencies": {
@@ -17,5 +21,18 @@
   },
   "scripts": {
     "start": "cds-serve"
+  },
+  "cds": {
+    "requires": {
+      "auth": "xsuaa",
+      "db": "hana",
+      "workzone-api": {
+        "kind": "rest",
+        "credentials": {
+          "destination": "workzone-oauth-client-api",
+          "requestTimeout": 30000
+        }
+      }
+    }
   }
 }
