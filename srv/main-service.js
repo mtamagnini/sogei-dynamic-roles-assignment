@@ -6,6 +6,7 @@ module.exports = async (srv) => {
     const wzService = await cds.connect.to('workzone-api');
 
     srv.on("updateUsersLists", async (req) => {
+        //prova
         const { userId, subRole } = req.data;
         var my_subRole = await SELECT.one.from(SubRole).where({id: subRole});
         var wzGroups_to_subRole = await SELECT.from(SubRoleGroupRelation).where({subRole_id:my_subRole["id"]});
