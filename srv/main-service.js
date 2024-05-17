@@ -1,14 +1,21 @@
+const { get } = require("@sap/cds");
+
 module.exports = async (srv) => {
 
+    const {SubRole, WorkZoneGroup, SubRoleGroupRelation} = cds.entities("dynamic_workzone_roles");
     const wzService = await cds.connect.to('workzone-api');
 
     srv.on("updateUsersLists", async (req) => {
-        const { userId, mainRole, subRole } = req.data;
+        const { userId, subRole } = req.data;
+        var my_subRole = await SELECT.one.from(SubRole).where({id: subRole});
+        var wzGroups_to_subRole = await SELECT.from(SubRoleGroupRelation).where({subRole_id:my_subRole["id"]});
+        var groups_to_be = [];
+        for (var wz in wzGroups_to_subRole){
+            var workZoneId = await SELECT.one.from(WorkZoneGroup).where({id: wzGroups_to_subRole[wz]["workZoneGroup_id"]});
+            groups_to_be.push(workZoneId["workZoneId"]);
+        }
         //TODO: get userId from req.user
         var oUser = await restAPI('GET',`/api/v1/scim/Users/${userId}`);
-        //TODO: groups_to_be will be populated based on mainRole and subRole values
-        //test_group_1: p8IlIMwC9FbwYNBmSAU000 ;; test_group_2: BnuUh0O7D8NyXSj4lEE000
-        var groups_to_be = ["BnuUh0O7D8NyXSj4lEE000"];
         var groups_as_is = oUser["groups"].map(e => e["value"]);
         for(var group in groups_to_be){
             if(groups_as_is.includes(groups_to_be[group])){

@@ -15,5 +15,5 @@ service DynamicWorkzoneRolesService{
         message: String;
     };
 
-    action updateUsersLists(userId: String, mainRole: String, subRole: String) returns ActionResponse;
+    action updateUsersLists(userId: String, subRole: String) returns ActionResponse;
 }
