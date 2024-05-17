@@ -4,6 +4,8 @@ service DynamicWorkzoneRolesService{
 
     entity MainRolesSet as projection on my.MainRole;
     entity SubRolesSet  as projection on my.SubRole;
+    entity WorkZoneGroupsSet  as projection on my.WorkZoneGroup;
+    entity SubRoleGroupRelationsSet  as projection on my.SubRoleGroupRelation;
 
     type ActionResponse{
         status : String enum{

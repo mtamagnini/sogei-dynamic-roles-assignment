@@ -1,6 +1,6 @@
-id,createdAt,createdBy,modifiedAt,modifiedBy,name
-d3e37cbb-5df8-4c4d-a1e6-efc14fdee448,2003-07-16 01:07:19,Tani,1913-01-12 07:01:51,Mahalia,Jamaica
-3dca533f-4ec5-47d9-b411-fc39d387dd4a,1979-01-26 03:01:10,Dyann,1944-10-06 10:10:11,Dotty,Tunisia
-26dc3b55-51e9-4694-a497-9e426c11c100,1943-01-09 04:01:47,Nataline,1983-05-07 12:05:38,Valera,Angola
-9ef8806c-fae5-4d43-8fae-168e684530dd,1958-07-15 04:07:47,Belva,1981-09-15 05:09:17,Daryl,Colombia
-aa4d930f-77ba-4d93-81d3-8c4c05338d72,1951-08-13 01:08:42,Augustine,1929-06-22 05:06:26,Heida,Egypt
+id,name
+d3e37cbb-5df8-4c4d-a1e6-efc14fdee448,Fiscalità
+3dca533f-4ec5-47d9-b411-fc39d387dd4a,Patrimonio dello Stato
+26dc3b55-51e9-4694-a497-9e426c11c100,Contabilità Pubblica
+9ef8806c-fae5-4d43-8fae-168e684530dd,Spesa Sanitaria
+aa4d930f-77ba-4d93-81d3-8c4c05338d72,Giustizia
