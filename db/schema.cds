@@ -23,3 +23,8 @@ entity SubRoleGroupRelation{
     key subRole         : Association to SubRole;
     key workZoneGroup   : Association to WorkZoneGroup;
 }
+
+entity User{
+    key reqUserId       : UUID;
+        workZoneId      : String;
+}

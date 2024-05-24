@@ -6,6 +6,7 @@ service DynamicWorkzoneRolesService @(requires : 'authenticated-user'){
     entity SubRolesSet  as projection on my.SubRole;
     entity WorkZoneGroupsSet  as projection on my.WorkZoneGroup;
     entity SubRoleGroupRelationsSet  as projection on my.SubRoleGroupRelation;
+    entity UsersSet as projection on my.User;
 
     type ActionResponse{
         status : String enum{
@@ -15,5 +16,5 @@ service DynamicWorkzoneRolesService @(requires : 'authenticated-user'){
         message: String;
     };
 
-    function updateUsersLists(userId: String, subRole: String) returns ActionResponse;
+    function updateUsersLists(subRoleUUID: String) returns ActionResponse;
 }
