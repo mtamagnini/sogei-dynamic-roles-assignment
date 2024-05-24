@@ -1,6 +1,6 @@
 using dynamic_workzone_roles as my from '../db/schema';
 
-service DynamicWorkzoneRolesService{
+service DynamicWorkzoneRolesService @(requires : 'authenticated-user'){
 
     entity MainRolesSet as projection on my.MainRole;
     entity SubRolesSet  as projection on my.SubRole;
@@ -15,5 +15,5 @@ service DynamicWorkzoneRolesService{
         message: String;
     };
 
-    action updateUsersLists(userId: String, subRole: String) returns ActionResponse;
+    function updateUsersLists(userId: String, subRole: String) returns ActionResponse;
 }

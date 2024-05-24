@@ -6,7 +6,6 @@ module.exports = async (srv) => {
     const wzService = await cds.connect.to('workzone-api');
 
     srv.on("updateUsersLists", async (req) => {
-        //prova
         const { userId, subRole } = req.data;
         var my_subRole = await SELECT.one.from(SubRole).where({id: subRole});
         var wzGroups_to_subRole = await SELECT.from(SubRoleGroupRelation).where({subRole_id:my_subRole["id"]});
@@ -24,6 +23,7 @@ module.exports = async (srv) => {
                 groups_as_is.splice(groups_as_is.indexOf(groups_to_be[group]),1);
             }
         }
+        //promise
         for(var group in groups_as_is){
             var oGroup = await restAPI('GET',`/api/v1/scim/Groups/${groups_as_is[group]}?attributes=members`);
             oGroup["members"].splice(oGroup["members"].findIndex(e => e["value"] == groups_as_is[group]),1);
