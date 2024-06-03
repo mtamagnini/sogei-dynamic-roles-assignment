@@ -1,26 +1,2 @@
 id,name,mainRole_id
 3b7377ea-63c9-48c6-814d-c8d21e254684,Esperto Fiscale,d3e37cbb-5df8-4c4d-a1e6-efc14fdee448
-cd9213e5-3376-4701-a39e-75e8b22b2585,Revisore Fiscale,d3e37cbb-5df8-4c4d-a1e6-efc14fdee448
-99f5bd78-e7a4-4aae-a55e-6d820f28bf8e,Consulente Fiscale,d3e37cbb-5df8-4c4d-a1e6-efc14fdee448
-15f5710b-e7e1-4129-8ad8-90157e6f1871,Analista Fiscale,d3e37cbb-5df8-4c4d-a1e6-efc14fdee448
-88b891ea-1fc3-4dff-9e51-c486d7cc9115,Responsabile del Settore Fiscale,d3e37cbb-5df8-4c4d-a1e6-efc14fdee448
-2c248ac9-205b-4b85-ba5f-013c925816ee,Esperto in Gestione del Patrimonio,3dca533f-4ec5-47d9-b411-fc39d387dd4a
-6f1e6811-234f-4890-bf02-176e75b97492,Valutatore Immobiliare,3dca533f-4ec5-47d9-b411-fc39d387dd4a
-be62c237-2932-439a-93da-a90f329f6b05,Responsabile delle Alienazioni,3dca533f-4ec5-47d9-b411-fc39d387dd4a
-22e57bec-845d-44c1-9bfe-767fd3e7ad67,Consulente per le Acquisizioni,3dca533f-4ec5-47d9-b411-fc39d387dd4a
-ffc8c0f5-7785-41c1-9f37-52a1454ee041,Analista del Patrimonio,3dca533f-4ec5-47d9-b411-fc39d387dd4a
-66cadf3f-ff7d-4328-9632-8cd93162a3b2,Responsabile della Contabilità Generale,26dc3b55-51e9-4694-a497-9e426c11c100
-f355e337-7491-404d-bc68-a73a7a19cd5c,Revisore Contabile,26dc3b55-51e9-4694-a497-9e426c11c100
-faf45f1b-d189-49a0-ac7e-326667ab6c82,Analista Contabile,26dc3b55-51e9-4694-a497-9e426c11c100
-cabd02f4-479c-42cb-ad08-4e2f0b65eccb,Consulente per la Gestione Finanziaria,26dc3b55-51e9-4694-a497-9e426c11c100
-6eb42a00-4755-4aa5-8fa0-b2824a54c605,Esperto in Bilancio Pubblico,26dc3b55-51e9-4694-a497-9e426c11c100
-d3be5fcc-b6f7-4abb-be39-b770c61465ab,Responsabile della Gestione Finanziaria Sanitaria,9ef8806c-fae5-4d43-8fae-168e684530dd
-a44a777f-0dea-4d82-b6ea-d8b62f6461a8,Analista dei Costi Sanitari,9ef8806c-fae5-4d43-8fae-168e684530dd
-82cfc97f-d770-41af-9d60-3bb0ff2f3a14,Consulente per la Pianificazione Sanitaria,9ef8806c-fae5-4d43-8fae-168e684530dd
-7ffbe96e-7bdb-4001-bf4d-beca1eccbdb1,Esperto in Finanziamenti Sanitari,9ef8806c-fae5-4d43-8fae-168e684530dd
-54db2726-fec0-4b7e-8edb-a03568bd7fb2,Revisore delle Spese Sanitarie,9ef8806c-fae5-4d43-8fae-168e684530dd
-c5feb66f-320f-4d1f-9df4-16bd747c34ca,Responsabile del Settore Giuridico,aa4d930f-77ba-4d93-81d3-8c4c05338d72
-ab5fe5ba-fa15-4b54-82b0-1b532aec5e20,Consulente Legale,aa4d930f-77ba-4d93-81d3-8c4c05338d72
-6f6744e4-2895-4b9d-b73e-99bcef0f4cac,Analista Giuridico,aa4d930f-77ba-4d93-81d3-8c4c05338d72
-0d11c13a-28a8-4705-9e64-9f50193291ab,Esperto in Diritto Penale,aa4d930f-77ba-4d93-81d3-8c4c05338d72
-325eadc5-c742-42e7-bc34-beb2b9fbf442,Revisore Giuridico,aa4d930f-77ba-4d93-81d3-8c4c05338d72
