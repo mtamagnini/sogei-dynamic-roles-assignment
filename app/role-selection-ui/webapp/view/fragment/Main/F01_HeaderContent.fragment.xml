@@ -1,0 +1,56 @@
+<c:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:c="sap.ui.core"
+    xmlns:tnt="sap.tnt"
+>
+    <tnt:ToolHeader class="sapUiTinyMargin">
+        <Image
+            class="sapUiSmallMarginEnd"
+            visible="{= !${device>/system/phone} }"
+            src="assets/sogei_logo.png"
+            decorative="false"
+            press="onLogoPressed"
+            tooltip="SAP Logo"
+        >
+            <layoutData>
+                <OverflowToolbarLayoutData priority="NeverOverflow" />
+            </layoutData>
+        </Image>
+        <Title
+            text="{i18n>mainPageTitle}"
+            wrapping="true"
+        >
+            <layoutData>
+                <OverflowToolbarLayoutData priority="Disappear" />
+            </layoutData>
+        </Title>
+        <Text
+            visible="{= !${device>/system/phone} }"
+            text="{i18n>mainPageSubTitle}"
+            wrapping="false"
+            id="secondTitle"
+        >
+            <layoutData>
+                <OverflowToolbarLayoutData priority="Disappear" />
+            </layoutData>
+        </Text>
+        <ToolbarSpacer>
+            <layoutData>
+                <OverflowToolbarLayoutData
+                    priority="Low"
+                    group="1"
+                />
+            </layoutData>
+        </ToolbarSpacer>
+        <Avatar
+            initials="{/user/initials}"
+            displaySize="XS"
+            press="onUserAvatarPress"
+            tooltip="Profile"
+        >
+            <layoutData>
+                <OverflowToolbarLayoutData priority="NeverOverflow" />
+            </layoutData>
+        </Avatar>
+    </tnt:ToolHeader>
+</c:FragmentDefinition>

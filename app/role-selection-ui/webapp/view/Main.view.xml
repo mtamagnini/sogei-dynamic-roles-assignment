@@ -1,0 +1,41 @@
+<mvc:View
+    controllerName="it.presales.app.roleselectionui.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+>
+    <Page
+        id="page"
+        showHeader="false"
+        showFooter="{= ${/subRoleSelected} &amp;&amp; ${device>/system/phone} }"
+    >
+        <content>
+            <VBox>
+                <!-- ANCHOR Page header toolbar -->
+                <core:Fragment
+                    id="F01_HeaderContent"
+                    fragmentName="it.presales.app.roleselectionui.view.fragment.Main.F01_HeaderContent"
+                    type="XML"
+                />
+
+                <!-- ANCHOR Main page content -->
+                <core:Fragment
+                    id="F02_MainPageContent"
+                    fragmentName="it.presales.app.roleselectionui.view.fragment.Main.F02_MainPageContent"
+                    type="XML"
+                />
+            </VBox>
+        </content>
+        <footer>
+            <Toolbar>
+                <ToolbarSpacer />
+                <Button 
+                    enabled="{/subRoleSelected}"
+                    type="Emphasized"
+                    text="{i18n>accessPortal}"
+                    press="onAccessPortalButtonPress"/>
+            </Toolbar>
+        </footer>
+    </Page>
+</mvc:View>

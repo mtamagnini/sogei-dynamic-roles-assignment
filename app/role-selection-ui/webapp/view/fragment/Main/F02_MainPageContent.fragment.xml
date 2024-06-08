@@ -1,0 +1,153 @@
+<c:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:c="sap.ui.core"
+    xmlns:l="sap.ui.layout"
+>
+    <l:BlockLayout background="{/selectedBackground}">
+        <l:BlockLayoutRow accentCells="Accent2">
+            <l:BlockLayoutCell>
+                <Title
+                    textAlign="Center"
+                    width="100%"
+                    wrapping="true"
+                    titleStyle="{= ${device>/system/phone} ? 'H3' : 'H1' }"
+                    level="{= ${device>/system/phone} ? 'H3' : 'H1' }"
+                    text="{i18n>welcomeMessageText}, {/user/name}"
+                />
+                <Text
+                    class="mainPageWelcomeSubMessageText sapUiSmallMarginTop"
+                    textAlign="Center"
+                    width="100%"
+                    text="{i18n>welcomeSubMessageText}"
+                />
+            </l:BlockLayoutCell>
+        </l:BlockLayoutRow>
+        <l:BlockLayoutRow accentCells="Accent1">
+            <l:BlockLayoutCell
+                id="Accent1"
+                title="{i18n>mainRoleBlockLayouTitle}"
+            >
+                <Text
+                    class="sapUiSmallMarginBottom"
+                    text="{i18n>mainRoleBlockLayouSubTitle}"
+                />
+                <List
+                    id="mainRolesList"
+                    mode="SingleSelectMaster"
+                    selectionChange="onMainRolesSetListSelectionChange"
+                    items="{
+                        path: 'odata>/MainRolesSet',
+                        sorter: {
+                            path: 'name'
+                        }
+                    }"
+                >
+                    <headerToolbar>
+                        <Toolbar>
+                            <SearchField />
+                        </Toolbar>
+                    </headerToolbar>
+                    <!-- <ObjectListItem
+                        title="{odata>name}"
+                        intro="{odata>description}"
+                        icon="sap-icon://manager"
+                        type="Navigation"
+                        press="onMainRoleListItemPress"
+                    /> -->
+                    <CustomListItem
+                        class="roleListItem"
+                        type="Navigation"
+                    >
+                        <HBox alignItems="Center">
+                            <c:Icon
+                                class="sapUiSmallMargin"
+                                src="sap-icon://manager"
+                                size="2rem"
+                                width="2rem"
+                                color="#000"
+                            />
+                            <VBox>
+                                <ObjectIdentifier
+                                    class="sapUiTinyMarginBottom"
+                                    title="{odata>name}"
+                                />
+                                <Text
+                                    text="{odata>description}"
+                                    wrapping="true"
+                                />
+                            </VBox>
+                        </HBox>
+                    </CustomListItem>
+                </List>
+            </l:BlockLayoutCell>
+            <l:BlockLayoutCell title="{i18n>subRoleBlockLayouTitle}">
+                <Text
+                    class="sapUiSmallMarginBottom"
+                    c:require="{ formatMessage: 'sap/base/strings/formatMessage' }"
+                    text="{
+                        parts: [
+                        'i18n>subRoleBlockLayouSubTitle',
+                        '/mainRoleName'
+                        ],
+                        formatter: 'formatMessage'
+                    }"
+                />
+                <List
+                    id="subRolesList"
+                    mode="SingleSelectMaster"
+                    selectionChange="onSubRolesSetListSelectionChange"
+                    noDataText="{i18n>subRolesListNoDataText}"
+                    items="{
+                        path: 'odata>/SubRolesSet',
+                        suspended: true,
+                        sorter: {
+                            path: 'name'
+                        }
+                    }"
+                >
+                    <headerToolbar>
+                        <Toolbar>
+                            <SearchField />
+                        </Toolbar>
+                    </headerToolbar>
+                    <CustomListItem
+                        class="roleListItem"
+                        type="Active"
+                    >
+                        <HBox alignItems="Center">
+                            <c:Icon
+                                class="sapUiSmallMargin"
+                                src="sap-icon://employee"
+                                size="2rem"
+                                width="2rem"
+                                color="#000"
+                            />
+                            <VBox>
+                                <ObjectIdentifier
+                                    class="sapUiTinyMarginBottom"
+                                    title="{odata>name}"
+                                />
+                                <Text
+                                    text="{odata>description}"
+                                    wrapping="true"
+                                />
+                            </VBox>
+                        </HBox>
+                    </CustomListItem>
+                </List>
+                <Toolbar 
+                    class="sapUiSmallMarginTop"
+                    visible="{= ${/subRoleSelected} &amp;&amp; !${device>/system/phone} }"
+                    style="Clear">
+                    <ToolbarSpacer />
+                    <Button
+                        enabled="{/subRoleSelected}"
+                        type="Emphasized"
+                        text="{i18n>accessPortal}"
+                        press="onAccessPortalButtonPress"
+                    />
+                </Toolbar>
+            </l:BlockLayoutCell>
+        </l:BlockLayoutRow>
+    </l:BlockLayout>
+</c:FragmentDefinition>

@@ -1,0 +1,22 @@
+/* Enter your custom styles here */
+
+@media screen and (max-width: 640px) {
+    .mainPageWelcomeSubMessageText {
+        font-size: 1.1rem !important;
+    }
+}
+
+@media screen and (min-width: 641px) {
+    .mainPageWelcomeSubMessageText {
+        font-size: 1.5rem !important;
+    }
+
+    .mainPageWelcomeSubMessageText {
+        padding-left: 6rem;
+        padding-right: 6rem;
+    }
+}
+
+.roleListItem {
+    padding: 0.5rem;
+}
