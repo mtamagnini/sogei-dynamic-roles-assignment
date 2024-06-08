@@ -16,6 +16,14 @@ service DynamicWorkzoneRolesService @(requires: 'authenticated-user') @(path: '/
         message : String;
     };
 
-    function updateUsersLists(subRoleUUID : String)           returns ActionResponse;
+    type UserDetails {
+        firstname : String;
+        lastname  : String;
+        email     : String;
+        name      : String;
+    }
+
+    function updateUsersLists(subRoleId : String)             returns ActionResponse;
     function testicolo(userId : String, subRoleUUID : String) returns ActionResponse;
+    function getUserDetails()                                 returns UserDetails;
 }

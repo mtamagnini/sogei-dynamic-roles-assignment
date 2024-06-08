@@ -1,2 +1,6 @@
-subRole_id,workZoneGroup_id
-3b7377ea-63c9-48c6-814d-c8d21e254684,dea04ad2-0979-472d-86d9-cea8db7f9cfc
+subRole_id,workZoneGroup_groupId
+3b7377ea-63c9-48c6-814d-c8d21e254684,Gruppo1
+3b7377ea-63c9-48c6-814d-c8d21e254684,Gruppo2
+4b7377ea-63c9-48c6-814d-c8d21e254684,GruppoA
+4b7377ea-63c9-48c6-814d-c8d21e254684,Gruppo2
+4b7377ea-63c9-48c6-814d-c8d21e254684,GruppoB

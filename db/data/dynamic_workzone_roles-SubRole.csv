@@ -1,2 +1,3 @@
-id,name,mainRole_id
-3b7377ea-63c9-48c6-814d-c8d21e254684,Esperto Fiscale,d3e37cbb-5df8-4c4d-a1e6-efc14fdee448
+id,name,mainRole_id,description
+3b7377ea-63c9-48c6-814d-c8d21e254684,Esperto Fiscale,d3e37cbb-5df8-4c4d-a1e6-efc14fdee448,"Cras ac nulla commodo justo ullamcorper ultricies sit amet eu purus"
+4b7377ea-63c9-48c6-814d-c8d21e254684,Gestore Ragioneria,d3e37cbb-5df8-4c4d-a1e6-efc14fdee448,"Nam mollis est ante, sed sagittis dolor dignissim id"
