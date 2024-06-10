@@ -18,6 +18,8 @@ modules:
     buildpack: nodejs_buildpack
     readiness-health-check-http-endpoint: /health
     readiness-health-check-type: http
+    disk-quota: 1024M
+    memory: 256M
   build-parameters:
     builder: npm
 - name: dynamic_workzone_roles-db-deployer
@@ -51,6 +53,46 @@ modules:
     - npm install
     - npm run build:cf
     supported-platforms: []
+- name: dynamic_workzone_roles-destination-content
+  type: com.sap.application.content
+  requires:
+  - name: srv-api
+  - name: dynamic_workzone_roles-destination
+    parameters:
+      content-target: true
+  - name: dynamic_workzone_roles-repo-host
+    parameters:
+      service-key:
+        name: dynamic_workzone_roles-repo-host-key
+  - name: dynamic_workzone_roles-auth
+    parameters:
+      service-key:
+        name: dynamic_workzone_roles-auth-key
+  parameters:
+    content:
+      instance:
+        destinations:
+        - Name: dynamic_workzone_roles_html_repo_host
+          ServiceInstanceName: dynamic_workzone_roles-html5-srv
+          ServiceKeyName: dynamic_workzone_roles-repo-host-key
+          sap.cloud.service: dynamicroles
+        - Authentication: OAuth2UserTokenExchange
+          Name: dynamic_workzone_roles_uaa
+          ServiceInstanceName: dynamic_workzone_roles-auth
+          ServiceKeyName: dynamic_workzone_roles-auth-key
+          sap.cloud.service: dynamicroles
+        - Authentication: OAuth2UserTokenExchange
+          HTML5.DynamicDestination: true
+          Name: dynamic_workzone_roles-service-api
+          ServiceInstanceName: dynamic_workzone_roles-auth
+          ServiceKeyName: dynamic_workzone_roles-auth-key
+          URL: ~{srv-api/srv-url}
+          WebIDEEnabled: true
+          WebIDEUsage: odata_gen
+          sap.cloud.service: dynamicroles
+        existing_destinations_policy: update
+  build-parameters:
+    no-source: true
 resources:
 - name: dynamic_workzone_roles-auth
   type: org.cloudfoundry.managed-service

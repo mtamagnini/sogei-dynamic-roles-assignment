@@ -5,7 +5,7 @@
     {
       "source": "^/main/(.*)$",
       "target": "/main/$1",
-      "destination": "dynamic_workzone_roles-srv",
+      "destination": "dynamic_workzone_roles-service-api",
       "authenticationType": "xsuaa",
       "csrfProtection": false
     },

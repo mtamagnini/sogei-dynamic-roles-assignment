@@ -86,13 +86,14 @@ sap.ui.define([
                     };
 
                 try {
+                    this._busyDialogCancelPressed = false;
                     this._openBusyDialog();
                     const result = await this.callODataModelFunction(options);
-                    this._closeBusyDialog();
-
+                    
                     const { status, message } = result;
-
+                    
                     if (status === "error") {
+                        this._closeBusyDialog();
                         MessageBox.error(
                             this.getTranslation("errorWhileSettingUserRolesMBText", [message]),
                             {
@@ -103,7 +104,14 @@ sap.ui.define([
                     }
 
                     if (!this._busyDialogCancelPressed) {
-                        window.location.href = `https://temporary-work-zone.workzone.cfapps.eu10.hana.ondemand.com/site?selectedRole=${subRoleId}`;
+                        setTimeout(
+                            function () {
+                                this._closeBusyDialog();
+                                // window.open(`https://temporary-work-zone.workzone.cfapps.eu10.hana.ondemand.com/site?selectedRole=${subRoleId}`, "_blank");
+                                window.location.href = `https://temporary-work-zone.workzone.cfapps.eu10.hana.ondemand.com/site?selectedRole=${subRoleId}`;
+                            }.bind(this),
+                            200
+                        )
                     }
 
                 } catch (err) {

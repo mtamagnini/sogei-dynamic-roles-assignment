@@ -2,6 +2,7 @@
     xmlns="sap.m"
     xmlns:c="sap.ui.core"
     xmlns:l="sap.ui.layout"
+    xmlns:tnt="sap.tnt"
 >
     <l:BlockLayout background="{/selectedBackground}">
         <l:BlockLayoutRow accentCells="Accent2">
@@ -43,7 +44,7 @@
                     }"
                 >
                     <headerToolbar>
-                        <Toolbar>
+                        <Toolbar style="Clear">
                             <SearchField />
                         </Toolbar>
                     </headerToolbar>
@@ -106,7 +107,7 @@
                     }"
                 >
                     <headerToolbar>
-                        <Toolbar>
+                        <Toolbar style="Clear">
                             <SearchField />
                         </Toolbar>
                     </headerToolbar>
@@ -131,14 +132,32 @@
                                     text="{odata>description}"
                                     wrapping="true"
                                 />
+                                <HBox
+                                    class="sapUiSizeCompact sapUiTinyMarginTop"
+                                    visible="false"
+                                    items="{
+                                        path: 'odata>groups',
+                                        sorter: {
+                                            path: 'workZoneGroup_groupId'
+                                        }
+                                    }"
+                                >
+                                    <tnt:InfoLabel
+                                        class="sapUiSizeCompact sapUiTinyMarginEnd"
+                                        text="{odata>workZoneGroup_groupId}"
+                                        renderMode="Narrow"
+                                        colorScheme="8"
+                                    />
+                                </HBox>
                             </VBox>
                         </HBox>
                     </CustomListItem>
                 </List>
-                <Toolbar 
+                <Toolbar
                     class="sapUiSmallMarginTop"
                     visible="{= ${/subRoleSelected} &amp;&amp; !${device>/system/phone} }"
-                    style="Clear">
+                    style="Clear"
+                >
                     <ToolbarSpacer />
                     <Button
                         enabled="{/subRoleSelected}"
