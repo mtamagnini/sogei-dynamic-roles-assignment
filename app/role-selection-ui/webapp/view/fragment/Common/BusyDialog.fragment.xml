@@ -1,0 +1,11 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<BusyDialog
+		busyIndicatorDelay="0"
+		title="{i18n>busyDialogTitle}"
+		text="{i18n>busyDialogText}"
+		showCancelButton="true"
+        cancelButtonText="{i18n>busyDialogCancelButtonText}"
+		close="onBusyDialogClosed" />
+</core:FragmentDefinition>

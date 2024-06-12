@@ -1,39 +1,60 @@
 {
-  "name": "dynamic_workzone_roles",
-  "version": "1.0.0",
-  "description": "A simple CAP project.",
-  "repository": "<Add your repository here>",
-  "license": "UNLICENSED",
-  "private": true,
-  "dependencies": {
-    "@sap-cloud-sdk/http-client": "^3.15.0",
-    "@sap-cloud-sdk/resilience": "^3.15.0",
-    "@sap/cds": "^7",
-    "@sap/hana-client": "^2.20.22",
-    "@sap/xssec": "^3",
-    "express": "^4",
-    "lodash": "^4.17.21"
-  },
-  "devDependencies": {
-    "@cap-js/sqlite": "^1",
-    "@sap/cds-dk": "^7.9.2",
-    "@sap/eslint-plugin-cds": "^3",
-    "eslint": "^9"
-  },
-  "scripts": {
-    "start": "cds-serve"
-  },
-  "cds": {
-    "requires": {
-      "auth": "xsuaa",
-      "db": "hana",
-      "workzone-api": {
-        "kind": "rest",
-        "credentials": {
-          "destination": "workzone-oauth-client-api",
-          "requestTimeout": 30000
+    "name": "dynamic_workzone_roles",
+    "version": "1.0.0",
+    "description": "A simple CAP project.",
+    "repository": "<Add your repository here>",
+    "license": "UNLICENSED",
+    "private": true,
+    "type": "module",
+    "dependencies": {
+        "@sap-cloud-sdk/http-client": "^3.15.0",
+        "@sap-cloud-sdk/resilience": "^3.15.0",
+        "@sap/cds": "^7",
+        "@sap/generator-fiori": "^1.13.5",
+        "@sap/hana-client": "^2.20.22",
+        "@sap/xssec": "^3",
+        "dotenv": "^16.4.5",
+        "express": "^4",
+        "lodash": "^4.17.21"
+    },
+    "devDependencies": {
+        "@cap-js/sqlite": "^1",
+        "@sap/cds-dk": "^7.9.2",
+        "@sap/eslint-plugin-cds": "^3",
+        "@sap/ux-specification": "UI5-1.124",
+        "eslint": "^9",
+        "rimraf": "^5.0.5"
+    },
+    "scripts": {
+        "start": "cds-serve",
+        "start-hybrid": "DEBUG=db,srv,embedding cds watch --profile hybrid",
+        "deploy:hana": "cds deploy --to hana:tama-hana-dev --no-save",
+        "watch-role-selection-ui": "cds watch --open role-selection-ui/webapp/index.html?sap-ui-xx-viewCache=false",
+        "undeploy": "cf undeploy dynamic_workzone_roles --delete-services --delete-service-keys --delete-service-brokers",
+        "build": "rimraf resources mta_archives && mbt build --mtar archive",
+        "deploy": "cf deploy mta_archives/archive.mtar --retries 1"
+    },
+    "cds": {
+        "requires": {
+            "db": "hana",
+            "auth": "jwt",
+            "workzone-api": {
+                "kind": "rest",
+                "credentials": {
+                    "destination": "temporary-workzone-oauth-client-api",
+                    "requestTimeout": 30000
+                }
+            },
+            "cf-uaa-api": {
+                "kind": "rest",
+                "credentials": {
+                    "destination": "cf-uaa-api",
+                    "requestTimeout": 30000
+                }
+            }
         }
-      }
-    }
-  }
+    },
+    "sapux": [
+        "app/role-selection-ui"
+    ]
 }

@@ -1,6 +1,2 @@
-id,name
-d3e37cbb-5df8-4c4d-a1e6-efc14fdee448,Fiscalità
-3dca533f-4ec5-47d9-b411-fc39d387dd4a,Patrimonio dello Stato
-26dc3b55-51e9-4694-a497-9e426c11c100,Contabilità Pubblica
-9ef8806c-fae5-4d43-8fae-168e684530dd,Spesa Sanitaria
-aa4d930f-77ba-4d93-81d3-8c4c05338d72,Giustizia
+id,name,description
+d3e37cbb-5df8-4c4d-a1e6-efc14fdee448,Fiscalità,Nulla facilisi. Nunc vehicula est id ex hendrerit nec porttitor urna scelerisque
