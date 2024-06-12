@@ -134,7 +134,7 @@
                                 />
                                 <HBox
                                     class="sapUiSizeCompact sapUiTinyMarginTop"
-                                    visible="false"
+                                    visible="true"
                                     items="{
                                         path: 'odata>groups',
                                         sorter: {

@@ -145,6 +145,6 @@
   },
   "sap.cloud": {
     "public": true,
-    "service": "dynamicroles"
+    "service": "wzroleassignments"
   }
 }

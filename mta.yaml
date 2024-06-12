@@ -75,12 +75,12 @@ modules:
         - Name: dynamic_workzone_roles_html_repo_host
           ServiceInstanceName: dynamic_workzone_roles-html5-srv
           ServiceKeyName: dynamic_workzone_roles-repo-host-key
-          sap.cloud.service: dynamicroles
+          sap.cloud.service: wzroleassignments
         - Authentication: OAuth2UserTokenExchange
           Name: dynamic_workzone_roles_uaa
           ServiceInstanceName: dynamic_workzone_roles-auth
           ServiceKeyName: dynamic_workzone_roles-auth-key
-          sap.cloud.service: dynamicroles
+          sap.cloud.service: wzroleassignments
         - Authentication: OAuth2UserTokenExchange
           HTML5.DynamicDestination: true
           Name: dynamic_workzone_roles-service-api
@@ -89,7 +89,7 @@ modules:
           URL: ~{srv-api/srv-url}
           WebIDEEnabled: true
           WebIDEUsage: odata_gen
-          sap.cloud.service: dynamicroles
+          sap.cloud.service: wzroleassignments
         existing_destinations_policy: update
   build-parameters:
     no-source: true
