@@ -1,2 +1,2 @@
-# sogei-dynamic-roles-assignment
+# dynamic-roles-assignment
 Demo
